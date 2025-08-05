@@ -3,7 +3,7 @@ import DashboardLayout from "../../components/layouts/DashboardLayout";
 import { Navigate, useNavigate } from "react-router-dom";
 import { IoMdCard } from "react-icons/io";
 import InfoCard from "../../components/Cards/InfoCard";
-import Last30DaysExpenses from "../../components/Dashboard/last30DaysExpenses";
+import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
 import { LuHandCoins, LuWalletMinimal } from "react-icons/lu";
 import { addThousandSeperator } from "../../utils/helper";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
