@@ -1,24 +1,18 @@
 import React, { useContext } from 'react';
-import {UserContext} from "../../context/UserContext"
+import { UserContext } from "../../context/UserContext";
 import Navbar from './Navbar';
-import SideMenu from './SideMenu';
 
 const DashboardLayout = ({ children, activeMenu }) => {
   const { user } = useContext(UserContext);
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Navbar activeMenu={activeMenu} />
       {user && (
-        <div className='flex'>
-          <div className='max-[1000px]:hidden'>
-            <SideMenu activeMenu={activeMenu} />
-          </div>
+        <main className="flex-grow p-10 bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200 min-h-screen">
+  {children}
+</main>
 
-          <div className='grow mx-5'>
-            {children}
-          </div>
-        </div>
       )}
     </div>
   );

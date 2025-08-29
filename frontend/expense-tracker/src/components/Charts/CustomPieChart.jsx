@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   PieChart,
   Pie,
@@ -6,8 +6,8 @@ import {
   Tooltip,
   ResponsiveContainer,
   Legend,
-} from 'recharts';
-import CustomLegend from './CustomLegend';
+} from "recharts";
+import CustomLegend from "./CustomLegend";
 
 // Optional: Custom tooltip component
 const CustomToolTip = ({ active, payload }) => {
@@ -31,7 +31,7 @@ const CustomPieChart = ({
 }) => {
   return (
     <div className="w-full h-64 flex flex-col items-center justify-center">
-      <h2 className="text-md font-semibold text-gray-600 mb-2">{label}</h2>
+      <h2 className="text-md font-semibold text-gray-600 ">{label}</h2>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
@@ -45,36 +45,39 @@ const CustomPieChart = ({
             labelLine={false}
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+              <Cell
+                key={`cell-${index}`}
+                fill={colors[index % colors.length]}
+              />
             ))}
           </Pie>
 
-          <Tooltip content={CustomToolTip } />
+          <Tooltip content={CustomToolTip} />
           <Legend content={CustomLegend} />
 
           {showTextAnchor && (
             <>
               <text
                 x="50%"
-                y="50%"
+                y="45%"
+                dy={2}
+                textAnchor="middle"
+                fill="#333"
+                fontSize="18px"
+                fontWeight="600"
+              >
+                {totalAmount}
+              </text>
+              {/* <text
+                x="50%"
+                y="85%"
                 dy={-25}
                 textAnchor="middle"
                 fill="#666"
                 fontSize="14px"
               >
                 {label}
-              </text>
-              <text
-                x="50%"
-                y="50%"
-                dy={8}
-                textAnchor="middle"
-                fill="#333"
-                fontSize="24px"
-                fontWeight="600"
-              >
-                {totalAmount}
-              </text>
+              </text>  */}
             </>
           )}
         </PieChart>

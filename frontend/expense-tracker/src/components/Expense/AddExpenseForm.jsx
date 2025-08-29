@@ -49,46 +49,56 @@ const AddExpenseForm = ({ onAddExpense }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md space-y-4">
-      <div className="flex items-center gap-2">
-        <EmojiPickerPopup
-          icon={expense.icon}
-          onSelect={(selectedIcon) => handleChange("icon", selectedIcon)}
-        />
+<div className="fixed inset-0 flex items-center justify-center z-50">
+  {/* Backdrop blur */}
+  <div className="absolute inset-0  backdrop-blur-sm"></div>
 
-        <Input
-          value={expense.category}
-          onChange={(e) => handleChange("category", e.target.value)}
-          label="Category"
-          placeholder="Rent, Groceries, etc."
-          type="text"
-        />
-      </div>
-
-      <Input
-        value={expense.amount}
-        onChange={(e) => handleChange("amount", e.target.value)}
-        label="Amount"
-        type="number"
+  {/* Modal content */}
+  <div className="relative bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200 
+                  p-6 rounded-2xl shadow-xl w-full max-w-md z-10 space-y-4 gap-10" >
+    <div className="flex items-center gap-2">
+      <EmojiPickerPopup
+        icon={expense.icon}
+        onSelect={(selectedIcon) => handleChange("icon", selectedIcon)}
       />
 
       <Input
-        value={expense.date}
-        onChange={(e) => handleChange("date", e.target.value)}
-        label="Date"
-        type="date"
+        value={expense.category}
+        onChange={(e) => handleChange("category", e.target.value)}
+        label="Category"
+        placeholder="Rent, Groceries, etc."
+        type="text"
       />
-
-      <div className="flex justify-end mt-6">
-        <button
-          type="button"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-          onClick={handleSubmit}
-        >
-          Add Expense
-        </button>
-      </div>
     </div>
+
+    <Input
+      value={expense.amount}
+      onChange={(e) => handleChange("amount", e.target.value)}
+      label="Amount"
+      type="number"
+    />
+
+    <Input
+      value={expense.date}
+      onChange={(e) => handleChange("date", e.target.value)}
+      label="Date"
+      type="date"
+    />
+
+    <div className="flex justify-end mt-6">
+      <button
+        type="button"
+        className="flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-5 py-2 rounded-xl shadow-md transition-all duration-300"
+        onClick={handleSubmit}
+      >
+        Add Expense
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
   );
 };
 

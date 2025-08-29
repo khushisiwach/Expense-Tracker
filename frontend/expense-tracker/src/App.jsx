@@ -6,11 +6,12 @@ import {
 } from "react-router-dom";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/SignUp";
-import Home from "./pages/Dashboard/Home";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
 import UserProvider from "./context/UserContext";
 import { Toaster } from "react-hot-toast";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
@@ -18,10 +19,10 @@ const App = () => {
       <div>
         <Router>
           <Routes>
-            <Route path="/" element={<Root />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<Signup />} />
-            <Route path="/dashboard" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/income" element={<Income />} />
             <Route path="/expense" element={<Expense />} />
           </Routes>

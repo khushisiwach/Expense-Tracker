@@ -32,7 +32,7 @@ const Input = ({
         </label>
       )}
 
-      <div className="relative flex items-center border rounded-md p-2">
+      <div className="relative flex items-center  ">
         <input
           type={actualType}
           value={value}
@@ -43,7 +43,7 @@ const Input = ({
           min={min}
           max={max}
           step={step}
-          className="w-full bg-transparent outline-none text-[15px] cursor-pointer"
+   className="mt-1 block w-full rounded-lg border border-purple-200 shadow-inner shadow-gray-300/50 custom-focus-ring outline-none sm:text-sm p-3 transition-all duration-300"
         />
 
         {isPassword && (
@@ -52,7 +52,7 @@ const Input = ({
             onClick={toggleShowPassword}
             className="absolute right-3 text-gray-600 focus:outline-none"
           >
-            {showPassword ? <FaRegEye size={20} /> : <FaRegEyeSlash size={20} />}
+            {showPassword ? <FaRegEye size={24} /> : <FaRegEyeSlash size={24} />}
           </button>
         )}
       </div>

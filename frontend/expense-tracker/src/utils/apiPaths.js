@@ -1,4 +1,4 @@
-export const BASE_URL = "https://expense-tracker-rfmq.onrender.com/";
+export const BASE_URL = "http://localhost:8000/";
 
 export const API_PATHS = {
   AUTH: {
@@ -22,7 +22,7 @@ export const API_PATHS = {
     DOWNLOAD_EXPENSE:`/api/v1/auth/expense/downloadexcel`,
   },
   IMAGE:{
-    UPLOAD_IMAGE :"api/v1/auth/upload-image",
+    UPLOAD_IMAGE :"/api/v1/auth/upload-image",
   }
 }
 
