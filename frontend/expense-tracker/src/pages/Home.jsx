@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+// Helper to get cookie value
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
 
 const features = [
   { title: 'Track Expenses', desc: 'Effortlessly log and categorize your spending with a clean, intuitive interface.' },
@@ -22,8 +29,20 @@ const Home = () => {
     };
   }, []);
 
+
   const handleGetStarted = () => {
     navigate('/login');
+  };
+
+  // Auth check using cookie
+  const isAuthenticated = !!getCookie('token');
+
+  const handleCardClick = (link) => {
+    if (isAuthenticated) {
+      navigate(link);
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
@@ -50,21 +69,29 @@ const Home = () => {
 
         {/* Features Section */}
         <section className={`features-section ${featuresAnimate ? 'active' : ''}`}>
-          {features.map((feature, index) => (
-            <div key={index} className="feature-card">
-              <h3 className="feature-card-title">{feature.title}</h3>
-              <p className="feature-card-desc">{feature.desc}</p>
-            </div>
-          ))}
+          <div className="feature-card">
+            <h3 className="feature-card-title">Track Expenses</h3>
+            <p className="feature-card-desc">Effortlessly log and categorize your spending with a clean, intuitive interface.</p>
+            <button onClick={() => handleCardClick('/expense')} className="feature-card-btn">Go to Expense</button>
+          </div>
+          <div className="feature-card">
+            <h3 className="feature-card-title">Track Income</h3>
+            <p className="feature-card-desc">Keep a clear record of all your earnings, from salary to side gigs.</p>
+            <button onClick={() => handleCardClick('/income')} className="feature-card-btn">Go to Income</button>
+          </div>
+          <div className="feature-card">
+            <h3 className="feature-card-title">Charts & Reports</h3>
+            <p className="feature-card-desc">Visualize your financial health with vibrant, dynamic charts and reports.</p>
+            <button onClick={() => handleCardClick('/dashboard')} className="feature-card-btn">Go to Dashboard</button>
+          </div>
         </section>
 
-        {/* Footer */}
-        <div className="footer">
+      </div>
+       <div className="footer">
         <footer>
           &copy; {new Date().getFullYear()} Expense Tracker. All rights reserved.
         </footer>
         </div>
-      </div>
     </div>
   );
 };

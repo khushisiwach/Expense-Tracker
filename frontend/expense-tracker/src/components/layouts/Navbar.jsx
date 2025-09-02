@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 import {
   Wallet,
   TrendingUp,
@@ -9,6 +10,7 @@ import {
   LogOut,
   LayoutDashboard,
 } from "lucide-react"; // icons
+import { Link } from "react-router-dom";
 
 export default function AdvancedNavbar() {
   const { user, clearUser } = useContext(UserContext);
@@ -16,12 +18,12 @@ export default function AdvancedNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: "Dashboard", link: "/", icon: LayoutDashboard },
+    { name: "Dashboard", link: "dashboard", icon: LayoutDashboard },
     { name: "Income", link: "/income", icon: TrendingUp },
     { name: "Expense", link: "/expense", icon: TrendingDown },
   ];
-
   const handleLogout = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     localStorage.clear();
     clearUser();
     window.location.href = "/login";
@@ -34,7 +36,7 @@ export default function AdvancedNavbar() {
                  fixed w-full z-50 border-b border-purple-200/40"
     >
       {/* 🌟 Logo Section */}
-      <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">
+      <Link to='/' whileHover={{ scale: 1.05 }} className="flex items-center gap-3">
         <div
           className="w-10 h-10 rounded-xl flex items-center justify-center 
                         bg-gradient-to-tr from-purple-400 via-purple-200 to-white
@@ -45,14 +47,14 @@ export default function AdvancedNavbar() {
         <span className="text-black-700 text-md tracking-wide drop-shadow-sm">
           Expense Tracker
         </span>
-      </motion.div>
+      </Link>
 
       {/* 🌟 Nav Links */}
       <div className="flex items-center space-x-4">
         {navLinks.map((link, idx) => (
-          <motion.a
+          <Link
             key={idx}
-            href={link.link}
+            to={link.link}
             whileHover={{ scale: 1.08 }}
             className={`relative px-5 py-2 rounded-xl font-medium text-sm flex items-center gap-2
               transition-all duration-300
@@ -63,10 +65,18 @@ export default function AdvancedNavbar() {
               }`}
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
+            onClick={()=>{
+            if(!user){
+              navigate("/login");
+            } else{
+              navigate(link.link);
+            }
+                }}
+               style={{cursor: "pointer"}}
           >
             <link.icon className="w-4 h-4 text-purple-600" />
             {link.name}
-          </motion.a>
+          </Link>
         ))}
 
         {/* 🌟 Profile / Auth */}

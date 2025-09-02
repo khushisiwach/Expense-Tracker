@@ -12,22 +12,23 @@ import Expense from "./pages/Dashboard/Expense";
 import UserProvider from "./context/UserContext";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
+import AdvancedNavbar from "./components/layouts/Navbar";
 
 const App = () => {
   return (
     <UserProvider>
-      <div>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signUp" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/income" element={<Income />} />
-            <Route path="/expense" element={<Expense />} />
-          </Routes>
-        </Router>
-      </div>
+
+      <Router>
+        <AdvancedNavbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/income" element={<Income />} />
+          <Route path="/expense" element={<Expense />} />
+        </Routes>
+      </Router>
 
       <Toaster
         toastOptions={{

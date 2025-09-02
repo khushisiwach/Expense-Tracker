@@ -450,7 +450,7 @@ body {
 }
 
 .get-started-btn {
-  background: linear-gradient(145deg, #b266ff, #5b2cff);
+  background: linear-gradient(145deg, #ab78df, #4b25d4);
   color: white;
   border: none;
   padding: 1rem 2.5rem;
@@ -508,7 +508,12 @@ body {
 .feature-card {
   background: linear-gradient(145deg, #f5e5ff, #d8bfff);
   border-radius: 20px;
+  min-height: 300px; /* make all cards equal height */
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
   box-shadow: 0 12px 25px rgba(91, 44, 255, 0.15);
   transition: all 0.3s ease-in-out;
@@ -529,6 +534,25 @@ body {
   font-size: 1rem;
   color: #4b1fcc; /* Slightly lighter blue-violet text */
 }
+.feature-card-btn {
+  background: linear-gradient(135deg, #5f16cb, #9486a3); /* violet gradient */
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  align-self: stretch;
+}
+
+.feature-card-btn:hover {
+  background: linear-gradient(135deg, #9d50bb, #6e48aa); /* deeper violet hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(142, 45, 226, 0.3);
+}
+
 
 .footer {
   width: 100vw; /* Full viewport width */

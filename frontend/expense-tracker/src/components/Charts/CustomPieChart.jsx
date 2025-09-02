@@ -60,7 +60,7 @@ const CustomPieChart = ({
               <text
                 x="50%"
                 y="45%"
-                dy={2}
+                dy={10}
                 textAnchor="middle"
                 fill="#333"
                 fontSize="18px"
