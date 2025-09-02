@@ -1,1 +1,11 @@
-{\n  "buildCommand": "cd frontend && npm install && npm run build",\n  "outputDirectory": "frontend/dist",\n  "routes": [\n    {\n      "src": "/[^.]+",\n      "dest": "/",\n      "status": 200\n    }\n  ]\n}
+{
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "routes": [
+    {
+      "src": "/[^.]+",
+      "dest": "/",
+      "status": 200
+    }
+  ]
+}
