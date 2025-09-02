@@ -2,9 +2,9 @@
   "name": "expense-tracker",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm install && npm run build",
-    "start": "npm run preview",
-    "dev": "npm run dev"
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm run preview",
+    "dev": "cd frontend && npm run dev"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.34.1",
