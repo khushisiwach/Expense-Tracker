@@ -70,7 +70,7 @@ The app is organized into two main services:
 - 
 ## 🧱 Project Structure
 
-expense-tracker/
+``` expense-tracker/
 ├─ client/                      # React + Tailwind
 │  ├─ src/
 │  │  ├─ components/           # UI components (forms, tables, charts)
@@ -91,4 +91,5 @@ expense-tracker/
 │  ├─ package.json
 ├─ .env.example                 # environment variables template
 └─ README.md
+```
 
