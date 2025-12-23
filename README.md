@@ -92,7 +92,7 @@ The app is organized into two main services:
 ├─ .env.example                 # environment variables template
 └─ README.md
 ```
-#Frontend Setup
+#FRONTEND SETUP
 
 cd client
 
@@ -102,14 +102,15 @@ npm run dev
 
 
 
-### Backend Setup
+### BACKEND SETUP
 
 cd server
 
 npm install
 
 
-# create .env based on .env.example
+# create .ENV based on .ENV.example
+
 
 # Example:
 
@@ -123,7 +124,7 @@ npm run dev   # starts Express on http://localhost:5000
 
 
 
-📡 API Endpoints
+📡 API ENDPOINTS
 
 Create Transaction 
 
@@ -141,7 +142,7 @@ Delete Transaction
 
 DELETE /api/transactions/:id
 
-🧪 Usage
+🧪 USAGE
 
 Open the app: http://localhost:5173 (Vite) or http://localhost:3000 (CRA)
 
@@ -154,7 +155,7 @@ Analyze: View charts and KPIs on the dashboard to understand spending patterns
 Manage: Edit or delete transactions from the history list
 
 
-📝 Development
+📝 DEVELOPMENT
 
 Adding New Categories
 
@@ -177,7 +178,7 @@ Add User model, JWT middleware, and /auth/login, /auth/register routes
 Scope queries by userId
 
 
-🐛 Troubleshooting
+🐛 TROUBLESHOOTING
 
 MongoDB connection errors
 
@@ -198,7 +199,7 @@ Port conflicts
 Ensure ports 5000 (backend) and 5173/3000 (frontend) are free
 
 
-🙏 Acknowledgments
+🙏 ACKNOWLEDGEMENT
 
 React & Tailwind teams for modern UI tooling
 
