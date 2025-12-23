@@ -1,5 +1,5 @@
 
-# Expense Tracker — Tailwind CSS, React.js, Node.js, Express.js, MongoDB
+# 💰 Expense Tracker — Tailwind CSS, React.js, Node.js, Express.js, MongoDB
 
 A full‑stack web application to record Income and Expenses, visualize transactions with Interactive charts, and monitor spending patterns for better financial control. Built with a React + Tailwind frontend, a Node + Express REST API, and MongoDB for persistent storage.
 
@@ -66,6 +66,30 @@ The app is organized into two main services:
 - Tailwind CSS
 - Axios for API communication
 - React Router for routing
-- Charts: Recharts or Chart.js 
+- Charts: Recharts or Chart.js
+- 
+## 🧱 Project Structure
+
+- expense-tracker/
+├─ client/                      # React + Tailwind
+│  ├─ src/
+│  │  ├─ components/           # UI components (forms, tables, charts)
+│  │  ├─ pages/                # Dashboard, Income, Expenses, Reports
+│  │  ├─ context/              # global app state
+│  │  ├─ services/             # axios instance & API functions
+│  │  ├─ hooks/                # custom hooks
+│  │  └─ App.jsx
+│  ├─ index.html
+│  └─ package.json
+├─ server/                      # Node + Express
+│  ├─ src/
+│  │  ├─ models/               # Mongoose schemas (Transaction, User*)
+│  │  ├─ routes/               # /api/transactions, /api/summary
+│  │  ├─ controllers/          # route handlers/business logic
+│  │  ├─ middleware/           # error handler, auth*
+│  │  └─ index.js              # app bootstrap
+│  ├─ package.json
+├─ .env.example                 # environment variables template
+└─ README.md
 
 
