@@ -92,4 +92,70 @@ The app is organized into two main services:
 ├─ .env.example                 # environment variables template
 └─ README.md
 ```
+#Frontend Setup
 
+cd client
+npm install
+npm run dev 
+
+
+### Backend Setup
+cd server
+npm install
+
+# create .env based on .env.example
+# Example:
+# MONGO_URI=mongodb+srv://<user>:<pass>@cluster/dbname
+# PORT=5000
+# NODE_ENV=development
+npm run dev   # starts Express on http://localhost:5000
+
+
+📡 API Endpoints
+Create Transaction -POST /api/transactions
+Get Transactions (with filters)
+GET /api/transactions?type=expense&from=2025-12-01&to=2025-12-31&category=Food
+Update Transaction-PUT /api/transactions/:id
+Delete Transaction-DELETE /api/transactions/:id
+
+🧪 Usage
+
+Open the app: http://localhost:5173 (Vite) or http://localhost:3000 (CRA)
+Add Transactions: Use the form to add income/expense entries
+Filter & Search: Filter by type, category, and date range
+Analyze: View charts and KPIs on the dashboard to understand spending patterns
+Manage: Edit or delete transactions from the history list
+
+📝 Development
+
+Adding New Categories
+Update the category constants used in forms and validation
+Ensure summary aggregation includes the new category
+
+Export Data (CSV/Excel) (optional)
+Add an endpoint: GET /api/transactions/export
+Use a helper to convert Mongo results to CSV/Excel
+
+Authentication (optional)
+Add User model, JWT middleware, and /auth/login, /auth/register routes
+Scope queries by userId
+
+🐛 Troubleshooting
+
+MongoDB connection errors
+Check MONGO_URI and IP access rules (Atlas)
+
+CORS issues
+Configure cors({ origin: FRONTEND_URL, credentials: true })} on the backend
+
+Charts not rendering
+Verify /api/summary returns the expected shape; check chart props
+
+Port conflicts
+Ensure ports 5000 (backend) and 5173/3000 (frontend) are free
+
+🙏 Acknowledgments
+
+React & Tailwind teams for modern UI tooling
+Express/Mongoose ecosystem for backend reliability
+Charting libraries (Recharts/Chart.js) for visualizations
